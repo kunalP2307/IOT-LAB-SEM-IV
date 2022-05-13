@@ -1,0 +1,30 @@
+/*
+Write a program read the temperature sensor and send the values to the serial monitor on the
+computer
+
+Name : Kunal Patil
+Roll No : SAI&D76
+
+*/
+
+
+int sensorPin = A0;
+int sensorInput;
+double tempreture;
+
+void setup()
+{
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  sensorInput = analogRead(sensorPin);
+  tempreture = (double) sensorInput / 1024;
+  tempreture = tempreture * 5;
+  tempreture = tempreture - 0.5;
+  tempreture = tempreture * 100;
+  Serial.println("Tempreture : ");
+  Serial.println(tempreture);
+  delay(1000);
+}

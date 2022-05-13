@@ -1,0 +1,25 @@
+/*
+Understanding the connectivity of Raspberry-Pi /Beagle board circuit / Arduino with IR sensor.
+Write an application to detect obstacle and notify user using LEDs
+
+Name : Kunal Patil
+Roll No : SAI&D76
+*/
+
+void setup()
+{
+  pinMode(12,OUTPUT);
+  pinMode(2,INPUT);
+  
+}
+void loop()
+{
+  digitalWrite(12,LOW);
+  if (digitalRead(2)== LOW)
+  {
+    digitalWrite(12,HIGH);
+    Serial.println(count);
+    delay(10);
+  }
+  
+}

@@ -1,0 +1,41 @@
+/*
+Write a program to control the color of the LED by turning 3 different potentiometers. One will be
+read for the value of Red, one for the value of Green, and one for the value of Blue
+
+Name : Kunal Patil
+Roll No : SAI&D76
+
+*/
+
+int REDANALOGPIN = A5;
+int BLUEANALOGPIN = A4;
+int BLUEANALOG = A3;
+
+int REDPIN = 2;
+int GREENPIN = 3;
+int BLUEPIN = 4;
+
+int redAnalog,greenAnalog,blueAnalog;
+int redValue,greenValue,blueValue;
+void setup()
+{
+  pinMode(2, OUTPUT);
+}
+
+void loop()
+{
+	redAnalog = analogRead(REDANALOGPIN);
+  	greenAnalog = analogRead(BLUEANALOGPIN);
+  	blueAnalog = analogRead(BLUEANALOG);
+  	
+  	redValue = map(redAnalog,0,1023,0,255);
+  	greenValue = map(redAnalog,0,1023,0,255);
+ 	blueValue = map(redAnalog,0,1023,0,255);
+  	
+  	analogWrite(REDPIN,redValue);
+  	analogWrite(GREENPIN,greenValue);
+  	analogWrite(BLUEPIN,blueValue);
+  	
+  	
+}
+

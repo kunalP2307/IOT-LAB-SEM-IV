@@ -1,0 +1,56 @@
+/*
+	Create a program so that when the user enters ‘b’ the green light blinks, ‘g’ the green light is
+	illuminated ‘y’ the yellow light is illuminated and ‘r’ the red light is illuminated 
+*/
+
+int RED = 13;
+int GREEN = 12;
+int YELLOW = 11;
+int BLUE = 10;
+
+
+char ledToBlink;
+
+void setup() {
+  pinMode(RED,OUTPUT);
+  pinMode(YELLOW,OUTPUT);
+  pinMode(BLUE,OUTPUT);
+  pinMode(GREEN,OUTPUT);
+  
+  Serial.begin(9600);
+}
+
+
+void loop() {
+  int temp;
+  //Serial.print("Select LED \n R: RED\n G: Green\n Y: Yello \n B: Blue");
+    
+  if (Serial.available() > 0) {
+   	ledToBlink = Serial.read();       
+   	
+    if ((ledToBlink == 'r') || (ledToBlink == 'R')) {
+    	Serial.print("Blinking Red LED\n");
+      	temp = 13;
+    }
+    else if((ledToBlink == 'g') || (ledToBlink == 'G')) {
+    	Serial.print("Blinking Green LED\n");
+      	temp = 12;
+    }
+    else if((ledToBlink == 'y') || (ledToBlink == 'Y')){
+   		Serial.print("Blinking Yellow LED\n");
+      	temp = 11;
+    }
+    else if((ledToBlink == 'b') || (ledToBlink == 'B')){
+    	Serial.print("Blinking Blue LED\n");
+      	temp = 10;
+    }
+    else{
+      	Serial.print("\nInvalid Choice Try Again \n");
+    }
+    digitalWrite(temp, HIGH);
+    delay(1000);
+    digitalWrite(temp, LOW);
+    
+  }
+}
+
