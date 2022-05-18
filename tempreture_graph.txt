@@ -6,50 +6,50 @@
 	
 
 */
+  int sensorPin = A0;
+  int sensorInput;
+  double tempreture;
+  double minTemp = 125, maxTemp = 0;
 
-int sensorPin = A0;
-int sensorInput;
-double tempreture;
-double minTemp = 125, maxTemp = 0;
-
-void setup()
-{
-  pinMode(sensorPin,INPUT);
-  Serial.begin(9600);
-}
-
-void loop()
-{
-  printMinMaxTemp();
-  	/*Serial.println("Minimum Tempreture : ");
-  	Serial.print((minTemp*(9/5)) + 32);
-    Serial.println("F");
-  	Serial.println("Maximum Tempreture : ");
-  	Serial.print((maxTemp*(9/5)) + 32);
-    Serial.println("F");*/
-  
-}
-
-void printMinMaxTemp(){
-  
-  for(int i=0; i<10; i++){
-  
-  	sensorInput = analogRead(sensorPin);
-  	tempreture = (double) sensorInput / 1024;
-  	tempreture = tempreture * 5;
-  	tempreture = tempreture - 0.5;
-  	tempreture = tempreture * 100;
-  	if(tempreture < minTemp)
-    	minTemp = tempreture;
-  	if(tempreture > maxTemp)
-    	maxTemp = tempreture;
-  	//Serial.println("Tempreture : ");
-    Serial.print("  ");
-  	Serial.println((tempreture*(9/5)) + 32);
-   
-    //Serial.println("F");
-  	delay(100);
-   
+  void setup()
+  {
+    pinMode(sensorPin,INPUT);
+    Serial.begin(9600);
   }
-  
-}
+
+  void loop()
+  {
+    printMinMaxTemp();
+      /*Serial.println("Minimum Tempreture : ");
+      Serial.print((minTemp*(9/5)) + 32);
+      Serial.println("F");
+      Serial.println("Maximum Tempreture : ");
+      Serial.print((maxTemp*(9/5)) + 32);
+      Serial.println("F");*/
+
+  }
+
+  void printMinMaxTemp(){
+
+    for(int i=0; i<10; i++){
+
+      sensorInput = analogRead(sensorPin);
+      tempreture = (double) sensorInput / 1024;
+      Serial.println(tempreture);
+      tempreture = tempreture * 5;
+      tempreture = tempreture - 0.5;
+      tempreture = tempreture * 100;
+      if(tempreture < minTemp)
+          minTemp = tempreture;
+      if(tempreture > maxTemp)
+          maxTemp = tempreture;
+      //Serial.println("Tempreture : ");
+      Serial.print("      ");
+      Serial.print((tempreture*(9/5)) + 32);
+
+      //Serial.println("F");
+      delay(100);
+
+    }
+
+  }
